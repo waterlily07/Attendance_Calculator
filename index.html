@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css?v=3" />
+  </head>
+  <body data-theme="light">
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">✓</div>
+          <div>
+            <p class="eyebrow">Web Tech Project</p>
+            <h1>Attendance Calculator</h1>
+          </div>
+        </div>
+
+        <div class="theme-switcher" aria-label="Theme switcher">
+          <button class="theme-btn active" data-theme="light" type="button">Day</button>
+          <button class="theme-btn" data-theme="dark" type="button">Night</button>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="panel highlight-panel">
+          <div class="panel-header">
+            <div>
+              <p class="section-label">Live Calculator</p>
+              <h2>Attendance Transparency Tool</h2>
+            </div>
+            <span class="mini-tag">Real-time</span>
+          </div>
+
+          <div class="input-grid">
+            <label class="field">
+              <span>Subject</span>
+              <input id="subjectName" type="text" maxlength="30" value="Web Technology" />
+            </label>
+
+            <label class="field">
+              <span>Total classes held</span>
+              <input id="totalClasses" type="number" min="0" step="1" value="40" />
+            </label>
+
+            <label class="field">
+              <span>Classes attended</span>
+              <input id="attendedClasses" type="number" min="0" step="1" value="32" />
+            </label>
+
+            <label class="field">
+              <span>Required attendance %</span>
+              <input id="requiredPercent" type="number" min="1" max="100" step="0.1" value="75" />
+            </label>
+          </div>
+
+          <p class="field-error" id="mainError" role="alert"></p>
+        </section>
+
+        <aside class="panel result-panel" id="resultPanel">
+          <div class="status-row">
+            <span class="status-label">Status</span>
+            <span class="status-pill safe" id="statusPill">Safe</span>
+          </div>
+
+          <div class="percentage-wrap">
+            <div class="percentage-main" id="currentPercentage">80%</div>
+          </div>
+
+          <div class="result-list">
+            <div class="result-item">
+              <span>Current attendance</span>
+              <strong id="summaryAttendance">80.00%</strong>
+            </div>
+            <div class="result-item">
+              <span>Attendance buffer</span>
+              <strong id="bufferValue">2 classes</strong>
+            </div>
+            <div class="result-item">
+              <span>Need to attend</span>
+              <strong id="needValue">0 classes</strong>
+            </div>
+          </div>
+
+          <p class="result-message" id="resultMessage" aria-live="polite"></p>
+        </aside>
+      </main>
+
+      <section class="panel tracker-panel">
+        <div class="panel-header">
+          <div>
+            <p class="section-label">Multi-subject Tracking</p>
+            <h2>Monitor your subjects</h2>
+          </div>
+          <button id="addSubjectBtn" class="add-btn" type="button">+ Add Subject</button>
+        </div>
+
+        <div id="subjectList" class="subject-list" aria-live="polite"></div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
